@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blender</title>
+    <style>
+        /* Reset & Body */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: monospace,'Times New Roman', Times, serif;
+            background: #f9fafb;
+            color: #111827;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Container - Maximize width for large screens */
+        .container {
+            display: flex;
+            gap: 40px; /* Increased gap slightly */
+            /* Increased max-width to allow the layout to span very large screens */
+            max-width: 2500px; 
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+/* ---------------------------------------------------------------- */
+
+/* MacBook Mockup - MAXIMIZED SIZE */
+.macbook {
+    padding: 2%;
+    max-width: 65vw; 
+    animation: float 3s ease-in-out infinite;
+    box-sizing: content-box; 
+    min-width: 600px;
+    margin-right: 0; 
+}
+
+.macbook-section {
+    /* Kept flex-grow at 1 */
+    flex-grow: 1; 
+    min-width: 300px; 
+    margin-right: 0; 
+    margin-top: 5rem;
+    display: flex; 
+    /* CHANGED: Align the MacBook to the LEFT side of its available space */
+
+    margin-left: 2rem;
+}
+
+.macbook .screen {
+    width: 100%;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.screen {
+    background: #000;
+    border-radius: 3% 3% 0.5% 0.5% / 5%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Outer bezel */
+.screen:before {
+    border: 2px solid #cacacc;
+    border-radius: 3% 3% 0.5% 0.5% / 5%;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.8) inset, 0 0 1px 2px rgba(255,255,255,0.3) inset;
+    content: "";
+    display: block;
+    padding-top: 66.6%; 
+}
+
+/* Screen reflection/detail line at the bottom */
+.screen:after {
+    content: "";
+    border-top: 2px solid rgba(255,255,255,0.15);
+    position: absolute;
+    bottom: 0.75%;
+    left: 0.5%;
+    padding-top: 1%;
+    width: 99%;
+}
+
+/* ---------------------------------------------------------------- */
+
+.viewport {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 2% 3%; 
+    background: #000;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.viewport video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 0.3rem;
+    display: block;
+}
+
+/* ---------------------------------------------------------------- */
+
+.base {
+    position: relative;
+    width: 100%;
+    margin-top: -0.2rem;
+}
+
+/* Keyboard/Palmrest Area */
+.base:before {
+    content: "";
+    display: block;
+    padding-top: 3.3%;
+    
+    background: linear-gradient(#eaeced, #edeef0 55%, #fff 55%, #8a8b8f 56%, 
+        #999ba0 61%, #4B4B4F 84%, #262627 89%, rgba(0, 0, 0, .01) 98%);
+    border-radius: 0 0 10% 10%/ 0 0 50% 50%;
+}
+
+/* Base side/edge reflection */
+.base::after {
+    background: linear-gradient(90deg,
+        rgba(0,0,0,0.5), rgba(255,255,255,0.8) 0.5%,
+        rgba(0,0,0,0.4) 3.3%, transparent 15%,
+        rgba(255,255,255,0.8) 50%, transparent 85%,
+        rgba(0,0,0,0.4) 96.7%, rgba(255,255,255,0.8) 99.5%,
+        rgba(0,0,0,0.5) 100%);
+    content: "";
+    height: 53%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------- */
+
+.notch {
+    background: #ddd;
+    border-radius: 0 0 7% 7% / 0 0 95% 95%;
+    box-shadow: -5px -1px 3px rgba(0,0,0,0.2) inset, 5px -1px 3px rgba(0,0,0,0.2) inset;
+    margin: -0.5% auto 0 auto; 
+    z-index: 2;
+    position: relative;
+    width: 14%;
+}
+.notch:before {
+    content: "";
+    display: block;
+    padding-top: 10%;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* Right Content Section - Maintained dominance */
+.content-section {
+    flex: 3; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 2rem;
+    
+    /* Current Desktop Positioning */
+    margin-left: -15rem; 
+    margin-right: 3rem; 
+    margin-top: 3rem; 
+
+}
+
+/* Cards (No changes to card size/width needed here) */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 100%; 
+    width: 100%;
+    margin-top: 0; 
+    margin-right: 0; 
+    margin-bottom: 20px;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+h1 { font-size: 32px; font-weight: 700; margin-bottom: 15px;}
+h2 { font-size: 26px; font-weight: 600; margin-bottom: 15px; }
+p { font-size: 14px; color: #7a3aed; margin-bottom: 15px; font-weight: 600; }
+
+/* Features List */
+.features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0; }
+.features-list li {
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 12px 18px;
+    border: 1px solid #e0e6ed;
+    font-size: 0.9em;
+    color: #555;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+.features-list li::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 100%;
+    background-color: #7a3aed;
+    border-radius: 2px;
+    margin-right: 12px;
+}
+.features-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-color: #7a3aed;
+}
+
+/* Tech Stack */
+.tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.tech-item {
+    background: #f3f4f6;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s;
+}
+.tech-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-color: #7a3aed;
+}
+
+/* Footer with Social Icons */
+.footer-section {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
+}
+.social-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.social-btn img { width: 22px; height: 22px; }
+.social-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #f3f4f6; }
+
+/* ---------------------------------------------------------------- */
+/* RESPONSIVE STYLES */
+/* ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    .container { 
+        /* Stacks items vertically */
+        flex-direction: column; 
+        align-items: center; 
+        padding: 0; /* REMOVED PADDING from container */
+        gap: 20px;
+    }
+    
+    /* Reset margins for content section on mobile to prevent overflow/misalignment */
+.content-section { 
+        width: 100%; 
+        margin: 0 auto; /* Center the section */
+        /* ADDED HORIZONTAL PADDING BACK to reduce the width/pull content away from edges */
+        padding: 0 10px; 
+        gap: 20px; 
+    }
+    
+    .card { 
+        margin: 0 auto; 
+        max-width: 100%; 
+        padding: 20px; /* Kept card inner padding */
+    }
+    
+    /* Ensure the macbook scales well and is centered */
+    .macbook-section {
+        width: 100%;
+        margin-top: 2rem;
+        justify-content: center;
+    }
+    .macbook { 
+        /* Use a max width that is responsive to the viewport, but not excessively huge */
+        max-width: 80vw; 
+        min-width: 350px;
+        margin-right: 2rem; /* Important: remove desktop margin */
+        margin-bottom: 2rem; 
+    } 
+}
+
+/* Also ensure the body padding is removed for mobile */
+body {
+    /* ... other styles ... */
+    /* Update the body padding to remove side padding, but keep top/bottom */
+    padding: 40px 0; 
+}
+
+@media (max-width: 480px) {
+    /* ... existing styles ... */
+    .macbook { 
+        max-width: 95%; /* Maximum width */
+    } 
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="macbook-section">
+            <div class="macbook">
+                <div class="screen">
+                    <div class="viewport">
+                        <video autoplay loop muted playsinline>
+                            <source src="DancingDoll.mkv" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="base"></div>
+                <div class="notch"></div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="card">
+                <h1>Dancing Doll</h1>
+                <p>A Blender VFX animation featuring a lifelike dancing doll, blending smooth motion with cinematic effects. Showcases attention to detail in character movement and atmosphere.</p>
+                <ul class="features-list">
+                    <li>Realistic doll animation with fluid motion</li>
+                    <li>VFX integration for enhanced cinematic feel</li>
+                    <li>Built using Blender, Sketchfab, and After Effects</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Tools & Technologies</h2>
+                <p>Built using:</p>
+                <div class="tech-stack">
+                    <div class="tech-item">Blender</div>
+                    <div class="tech-item">After Effect</div>
+                    <div class="tech-item">Sketchfab</div>
+                </div>
+
+                <div class="footer-section">
+                    <a href="https://github.com/jenishlin-2523" target="_blank" class="social-btn github-btn">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/jenishlin-brisho-m-a043ba371/" target="_blank" class="social-btn linkedin-btn">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
