@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapName App</title>
+    <style>
+        /* Reset & Body */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace, 'Times New Roman', Times, serif;
+            background: #f9fafb;
+            color: #111827;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            gap: 60px;
+            max-width: 1400px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ---------------------------------------------------------------- */
+        /* Phone Mockup - SLEEK & PREMIUM */
+        .phone-section {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone {
+            position: relative;
+            width: 320px;
+            height: 650px;
+            background: #111;
+            border-radius: 45px;
+            border: 12px solid #222;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.3),
+                        0 30px 60px -30px rgba(0, 0, 0, 0.4),
+                        inset 0 0 20px rgba(255, 255, 255, 0.05);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Top Notch / Dynamic Island style */
+        .phone::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 25px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* Inner Screen */
+        .viewport {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            border-radius: 33px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .viewport video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* ---------------------------------------------------------------- */
+        /* Content Section - MATCH LAPTOP VERSION */
+        .content-section {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 2rem;
+            margin-left: -5rem; /* Adjusted for phone mockup proximity */
+            margin-right: 3rem;
+            margin-top: 3rem;
+            max-width: 800px;
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px 30px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 15px;
+            line-height: 1.5;
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #7a3aed;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #7a3aed;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            background-color: #ffffff;
+            border-radius: 6px;
+            padding: 12px 18px;
+            border: 1px solid #e0e6ed;
+            font-size: 0.9em;
+            color: #555;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease-in-out;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 100%;
+            background-color: #7a3aed;
+            border-radius: 2px;
+            margin-right: 12px;
+        }
+
+        .features-list li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-color: #7a3aed;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-item {
+            background: #f3f4f6;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-color: #7a3aed;
+        }
+
+        /* Footer Icons */
+        .footer-section {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background: #fff;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .social-btn img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #f3f4f6;
+        }
+
+        /* ---------------------------------------------------------------- */
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .container { flex-direction: column; gap: 40px; }
+            .phone { width: 280px; height: 580px; }
+            .content-section { width: 100%; max-width: 100%; padding: 0 10px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="phone-section">
+            <div class="phone">
+                <div class="viewport">
+                    <video autoplay loop muted playsinline>
+                        <source src="SnapName.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="card">
+                <h1>SnapName App</h1>
+                <p class="description">A mobile app to rename and search images efficiently — all in one simple, real-time app. Organize your photo library effortlessly and find any image instantly with smart, real-time search.</p>
+                <ul class="features-list">
+                    <li>Rename images individually or in bulk for better organization</li>
+                    <li>Add tags and metadata for faster and smarter searching</li>
+                    <li>Access and manage your photo library quickly, all in one place</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Tools & Technologies</h2>
+                <p>Built using:</p>
+                <div class="tech-stack">
+                    <div class="tech-item">Android Studio</div>
+                    <div class="tech-item">Kotlin</div>
+                    <div class="tech-item">Xml</div>
+                </div>
+
+                <div class="footer-section">
+                    <a href="https://github.com/jenishlin-2523" target="_blank" class="social-btn github-btn">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/jenishlin-brisho-m-a043ba371/" target="_blank" class="social-btn linkedin-btn">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
