@@ -1,0 +1,35 @@
+# Portfolio Project Links
+# Base: https://jenishlin-projects.netlify.app/
+
+Main Portfolio (Squid Game):
+https://jenishlin-projects.netlify.app/
+
+AI Quiz Generator:
+https://jenishlin-projects.netlify.app/AIQuizGen
+
+SnapName App (Mobile Mockup):
+https://jenishlin-projects.netlify.app/SnapName
+
+Excel Analytics Platform:
+https://jenishlin-projects.netlify.app/ExcelAnalyticsPlatform
+
+PPT Generator:
+https://jenishlin-projects.netlify.app/PPTGenerator
+
+Building Balls (Simulation):
+https://jenishlin-projects.netlify.app/BuildingBalls
+
+Dancing Doll:
+https://jenishlin-projects.netlify.app/DancingDoll
+
+Perfume Advertisement:
+https://jenishlin-projects.netlify.app/PerfumeAdvertisement
+
+Short Film:
+https://jenishlin-projects.netlify.app/ShortFilm
+
+Zion Star:
+https://jenishlin-projects.netlify.app/ZionStar
+
+iPhone Advertisement:
+https://jenishlin-projects.netlify.app/iPhoneAdvertisement
